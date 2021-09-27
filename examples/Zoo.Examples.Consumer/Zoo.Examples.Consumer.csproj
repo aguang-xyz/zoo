@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Zoo.Examples.Consumer</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Zoo.Protocol.AspNetCore\Zoo.Protocol.AspNetCore.csproj" />
+      <ProjectReference Include="..\..\src\Zoo.Registry.Redis\Zoo.Registry.Redis.csproj" />
+      <ProjectReference Include="..\Zoo.Examples.Contract\Zoo.Examples.Contract.csproj" />
+    </ItemGroup>
+
+</Project>
