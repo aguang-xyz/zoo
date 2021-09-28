@@ -48,7 +48,7 @@ namespace Zoo.Rpc.Client
                 foreach (var p in _providers)
                 {
                     if (p.Uri.GetServiceName() == serviceType.FullName &&
-                        p.Uri.GetQueryParameter(ParameterNames.NodeType) == NodeTypes.Consumer)
+                        p.Uri.GetNodeType() == NodeTypes.Consumer)
                     {
                         return;
                     }
@@ -71,8 +71,7 @@ namespace Zoo.Rpc.Client
                 // Try to reuse existed consumer.
                 foreach (var c in _consumers)
                 {
-                    if (c.Uri.GetServiceName() == serviceType.FullName &&
-                        c.Uri.GetQueryParameter(ParameterNames.NodeType) == NodeTypes.Consumer)
+                    if (c.Uri.GetServiceName() == serviceType.FullName && c.Uri.GetNodeType() == NodeTypes.Consumer)
                     {
                         return c.GetReference();
                     }

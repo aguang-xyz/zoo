@@ -11,6 +11,11 @@ namespace Zoo.Rpc.Abstractions.Constants
         public const string NodeType = nameof(NodeType);
 
         /// <summary>
+        /// Service version.
+        /// </summary>
+        public const string ServiceVersion = nameof(ServiceVersion);
+
+        /// <summary>
         /// Load balance.
         /// </summary>
         public const string LoadBalance = nameof(LoadBalance);

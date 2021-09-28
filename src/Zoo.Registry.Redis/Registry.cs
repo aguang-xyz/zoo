@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using StackExchange.Redis;
-using Zoo.Rpc.Abstractions.Constants;
 using Zoo.Rpc.Abstractions.Nodes;
 using Zoo.Rpc.Shared.Extensions;
 
@@ -107,10 +106,7 @@ namespace Zoo.Registry.Redis
 
         private static RedisKey GetRedisKey(Uri uri)
         {
-            var interfaceName = uri.GetServiceName();
-            var nodeType = uri.GetQueryParameter(ParameterNames.NodeType);
-
-            return new RedisKey($"{nodeType}:{interfaceName}");
+            return new RedisKey($"{uri.GetNodeType()}:{uri.GetServiceName()}");
         }
 
         public void Register(Uri uri)

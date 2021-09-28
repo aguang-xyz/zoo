@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using Zoo.Rpc.Abstractions.LoadBalancers;
 using Zoo.Rpc.Abstractions.Models;
 using Zoo.Rpc.Abstractions.Nodes;
@@ -11,34 +10,27 @@ namespace Zoo.Rpc.Shared.Nodes
     /// </summary>
     public class LoadBalancedRpcInvoker : IRpcInvoker
     {
+        private readonly IRpcConsumer _consumer;
+        
         private readonly IRpcLoadBalancer _loadBalancer;
 
         private readonly IRpcInvoker[] _innerInvokers;
 
-        public LoadBalancedRpcInvoker(IRpcLoadBalancer loadBalancer, IRpcInvoker[] innerInvokers)
+        public LoadBalancedRpcInvoker(IRpcConsumer consumer, IRpcLoadBalancer loadBalancer, IRpcInvoker[] innerInvokers)
         {
+            _consumer = consumer;
             _loadBalancer = loadBalancer;
             _innerInvokers = innerInvokers;
+            Uri = _consumer.Uri;
         }
 
         public bool IsConsumerSide => true;
 
-        public Uri Uri
-        {
-            get
-            {
-                if (_innerInvokers.Any())
-                {
-                    return _innerInvokers.First().Uri;
-                }
-
-                throw new InvalidOperationException("No inner invokers available");
-            }
-        }
+        public Uri Uri { get; }
 
         public IRpcResult Invoke(IRpcInvocation invocation)
         {
-            return _loadBalancer.Select(Uri, _innerInvokers, invocation).Invoke(invocation);
+            return _loadBalancer.Select(_consumer, _innerInvokers, invocation).Invoke(invocation);
         }
         
         public void Dispose()

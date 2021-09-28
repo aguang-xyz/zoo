@@ -14,11 +14,12 @@ namespace Zoo.Protocol.AspNetCore.Extensions
 
         public static IServiceCollection AddConsumer<TService>(this IServiceCollection services) where TService : class
         {
+            RpcClientService.ConsumerTypes.Add(typeof(TService));
             return services.AddScoped(serviceProvider =>
             {
                 var clientService = (RpcClientService) serviceProvider
                     .GetServices<IHostedService>()
-                    .First(service => service.GetType() == typeof(RpcClientService));
+                    .First(service => service is RpcClientService);
                 return clientService.Consume<TService>();
             });
         }

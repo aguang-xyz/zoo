@@ -5,4 +5,8 @@
         <RootNamespace>Zoo.Examples.Contract</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Zoo.Rpc.Abstractions\Zoo.Rpc.Abstractions.csproj" />
+    </ItemGroup>
+
 </Project>

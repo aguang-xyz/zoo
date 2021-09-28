@@ -10,8 +10,10 @@ using Zoo.Rpc.Client;
 
 namespace Zoo.Protocol.AspNetCore.Services
 {
-    public class RpcClientService : IHostedService
+    internal sealed class RpcClientService : IHostedService
     {
+        public static readonly IList<Type> ConsumerTypes = new List<Type>();
+        
         public static readonly IList<Type> ProviderTypes = new List<Type>();
 
         private static readonly IProxyGenerator ProxyGenerator = new ProxyGenerator();
@@ -39,6 +41,11 @@ namespace Zoo.Protocol.AspNetCore.Services
         {
             return Task.Run(() =>
             {
+                foreach (var consumerType in ConsumerTypes)
+                {
+                    _client.Consume(consumerType);
+                }
+                
                 foreach (var providerType in ProviderTypes)
                 {
                     var interceptor = new AspNetCoreRpcInterceptor(_serviceProvider, providerType);

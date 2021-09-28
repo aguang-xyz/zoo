@@ -66,7 +66,7 @@ namespace Zoo.Rpc.Shared.Nodes
             // Construct invoker with load balancer and handlers.
             lock (_invoker)
             {
-                _invoker = new LoadBalancedRpcInvoker(_loadBalancer, invokers).WithHandlers();
+                _invoker = new LoadBalancedRpcInvoker(this, _loadBalancer, invokers).WithHandlers();
             }
         }
 
