@@ -1,4 +1,5 @@
 using System;
+using Zoo.Rpc.Abstractions.Attributes;
 using Zoo.Rpc.Abstractions.LoadBalancers;
 using Zoo.Rpc.Abstractions.Models;
 using Zoo.Rpc.Abstractions.Nodes;
@@ -6,11 +7,12 @@ using Zoo.Rpc.Abstractions.Nodes;
 namespace Zoo.Rpc.Shared.LoadBalancers
 {
     /// <summary>
-    /// Random load balancer.
+    /// Round-robin load balancer.
     /// </summary>
-    public class RandomLoadBalancer : IRpcLoadBalancer
+    [Name("round-robin")]
+    public class RoundRobinRpcLoadBalancer : IRpcLoadBalancer
     {
-        private static readonly Random Random = new();
+        private int _index;
         
         public IRpcInvoker Select(Uri serviceUri, IRpcInvoker[] invokers, IRpcInvocation invocation)
         {
@@ -19,7 +21,10 @@ namespace Zoo.Rpc.Shared.LoadBalancers
                 throw new InvalidOperationException("No invokers available");
             }
             
-            return invokers[Random.Next(invokers.Length)];
+            lock (this)
+            {
+                return invokers[_index++ % invokers.Length];
+            }
         }
     }
 }

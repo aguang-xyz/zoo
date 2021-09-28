@@ -9,7 +9,7 @@ using Zoo.Rpc.Shared.Utils;
 
 namespace Zoo.Rpc.Shared.Extensions
 {
-    public static class InvokerExtensions
+    public static class RpcInvokerExtensions
     {
         /// <summary>
         /// Get the order of a handler.
