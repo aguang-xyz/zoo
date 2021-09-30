@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 
 namespace Zoo.Rpc.Shared.Utils
 {
@@ -11,19 +9,6 @@ namespace Zoo.Rpc.Shared.Utils
     /// </summary>
     public static class TypeUtils
     {
-        private static IEnumerable<Assembly> GetAssemblies()
-        {
-            // Load assemblies of current app domain.
-            var assemblies = new List<Assembly>(AppDomain.CurrentDomain.GetAssemblies());
-            
-            // Load additional assemblies of Zoo related packages.
-            foreach (var dll in Directory.GetFiles(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, "Zoo.*.dll"))
-            {
-                assemblies.Add(Assembly.LoadFile(dll));
-            }
-
-            return assemblies.Distinct();
-        }
         /// <summary>
         /// Get type by fullname.
         /// </summary>
@@ -31,7 +16,8 @@ namespace Zoo.Rpc.Shared.Utils
         /// <returns></returns>
         public static Type TypeOf(string fullname)
         {
-            return GetAssemblies()
+            return AssemblyUtils
+                .GetAll()
                 .SelectMany(assembly => assembly.GetTypes())
                 .First(type => type.FullName == fullname);
         }
@@ -50,12 +36,12 @@ namespace Zoo.Rpc.Shared.Utils
                 throw new InvalidOperationException($"{nameof(interfaceType)} should be an interface type");
             }
 
-            return GetAssemblies()
+            return AssemblyUtils
+                .GetAll()
                 .SelectMany(assembly => assembly.GetTypes())
                 .Where(type => type.IsClass && !type.IsAbstract && interfaceType.IsAssignableFrom(type))
                 .GroupBy(x => x.FullName)
-                .Select(g => g.First())
-                .ToArray();
+                .Select(g => g.First());
         }
     }
 }
