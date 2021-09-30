@@ -63,10 +63,20 @@ namespace Zoo.Rpc.Shared.Nodes
                     Attachments = new Dictionary<string, string>()
                 };
             }
+            catch (TargetInvocationException e)
+            {
+                return new DefaultRpcResult
+                {
+                    ReturnValue = null,
+                    Exception = e.InnerException,
+                    Attachments = new Dictionary<string, string>()
+                };
+            }
             catch (Exception e)
             {
                 return new DefaultRpcResult
                 {
+                    ReturnValue = null,
                     Exception = e,
                     Attachments = new Dictionary<string, string>()
                 };
