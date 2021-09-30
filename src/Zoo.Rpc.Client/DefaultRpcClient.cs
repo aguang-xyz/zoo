@@ -35,12 +35,7 @@ namespace Zoo.Rpc.Client
             _registry = RegistryFactory.Create(options.RegistryUri);
         }
 
-        public void Provide<TService>(object service)
-        {
-            Provide(typeof(TService), service);
-        }
-
-        public void Provide(Type serviceType, object service)
+        public void Provide(Type serviceType, IRpcInvoker invoker)
         {
             lock (this)
             {
@@ -55,13 +50,8 @@ namespace Zoo.Rpc.Client
                 }
                 
                 // Add a new provider node.
-                _providers.Add(ProviderFactory.Create(_registry, serviceType, _options.ServiceUri, service));
+                _providers.Add(ProviderFactory.Create(_registry, serviceType, _options.ServiceUri, invoker));
             }
-        }
-
-        public TService Consume<TService>()
-        {
-            return (TService) Consume(typeof(TService));
         }
 
         public object Consume(Type serviceType)

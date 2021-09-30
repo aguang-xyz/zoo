@@ -1,7 +1,6 @@
 using System;
 using Zoo.Rpc.Abstractions.Factories;
 using Zoo.Rpc.Abstractions.Nodes;
-using Zoo.Rpc.Shared.Extensions;
 using Zoo.Rpc.Shared.Factories;
 using Zoo.Rpc.Shared.Utils;
 
@@ -18,10 +17,10 @@ namespace Zoo.Rpc.Shared.Nodes
 
         private readonly IRpcExporter _exporter;
 
-        public DefaultRpcProvider(IRpcRegistry registry, Type serviceType, Uri serviceUri, object service)
+        public DefaultRpcProvider(IRpcRegistry registry, Type serviceType, Uri serviceUri, IRpcInvoker invoker)
         {
             _registry = registry;
-            _exporter = ExporterFactory.Create(serviceType, serviceUri, new ClrRpcInvoker(service).WithHandlers());
+            _exporter = ExporterFactory.Create(serviceType, serviceUri, invoker);
             Uri = UriUtils.CreateProviderUri(serviceType, serviceUri);
         }
         

@@ -1,4 +1,5 @@
 using System;
+using Zoo.Rpc.Abstractions.Nodes;
 
 namespace Zoo.Rpc.Client
 {
@@ -7,11 +8,7 @@ namespace Zoo.Rpc.Client
     /// </summary>
     public interface IRpcClient : IDisposable
     {
-        void Provide<TService>(object service);
-
-        void Provide(Type serviceType, object service);
-
-        TService Consume<TService>();
+        void Provide(Type serviceType, IRpcInvoker invoker);
 
         object Consume(Type serviceType);
 

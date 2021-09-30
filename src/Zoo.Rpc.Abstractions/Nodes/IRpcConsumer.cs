@@ -13,7 +13,6 @@ namespace Zoo.Rpc.Abstractions.Nodes
         /// <summary>
         /// Get dynamic proxy object.
         /// </summary>
-        /// <typeparam name="TService"></typeparam>
         /// <returns></returns>
         object GetReference();
     }

@@ -14,7 +14,7 @@ namespace Zoo.Protocol.AspNetCore.Nodes
 
         public RpcViaHttpInvoker(Type serviceType, Uri serviceUri)
         {
-            _hostUri = $"{serviceUri.Scheme}://{serviceUri.Host}:{serviceUri.Port}/";
+            _hostUri = $"{serviceUri.Scheme}://{serviceUri.Host}:{serviceUri.Port}/${serviceType.FullName}";
             Uri = serviceUri;
         }
 

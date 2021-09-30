@@ -14,8 +14,8 @@ namespace Zoo.Rpc.Abstractions.Factories
         /// <param name="registry"></param>
         /// <param name="serviceType"></param>
         /// <param name="serviceUri"></param>
-        /// <param name="service"></param>
+        /// <param name="invoker"></param>
         /// <returns></returns>
-        IRpcProvider Create(IRpcRegistry registry, Type serviceType, Uri serviceUri, object service);
+        IRpcProvider Create(IRpcRegistry registry, Type serviceType, Uri serviceUri, IRpcInvoker invoker);
     }
 }

@@ -32,7 +32,7 @@ namespace Zoo.Rpc.Shared.Nodes
 
         private IRpcInvoker _invoker = new UnavailableRpcInvoker();
 
-        private object _proxy;
+        private readonly object _proxy;
 
         public DefaultRpcConsumer(IRpcRegistry registry, Type serviceType, Uri serviceUri)
         {

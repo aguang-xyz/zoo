@@ -10,9 +10,9 @@ namespace Zoo.Rpc.Shared.Factories
     /// </summary>
     public class DefaultRpcProviderFactory : IRpcProviderFactory
     {
-        public IRpcProvider Create(IRpcRegistry registry, Type serviceType, Uri serviceUri, object service)
+        public IRpcProvider Create(IRpcRegistry registry, Type serviceType, Uri serviceUri, IRpcInvoker invoker)
         {
-            return new DefaultRpcProvider(registry, serviceType, serviceUri, service);
+            return new DefaultRpcProvider(registry, serviceType, serviceUri, invoker);
         }
     }
 }

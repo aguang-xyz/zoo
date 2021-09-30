@@ -2,10 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Castle.DynamicProxy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Zoo.Protocol.AspNetCore.Interceptors;
+using Zoo.Protocol.AspNetCore.Nodes;
 using Zoo.Rpc.Client;
 
 namespace Zoo.Protocol.AspNetCore.Services
@@ -16,8 +15,6 @@ namespace Zoo.Protocol.AspNetCore.Services
         
         public static readonly IList<Type> ProviderTypes = new List<Type>();
 
-        private static readonly IProxyGenerator ProxyGenerator = new ProxyGenerator();
-        
         private readonly IServiceProvider _serviceProvider;
 
         private readonly IRpcClient _client;
@@ -32,38 +29,34 @@ namespace Zoo.Protocol.AspNetCore.Services
             });
         }
 
-        public TService Consume<TService>()
+        public TService Consume<TService>() where TService : class
         {
-            return _client.Consume<TService>();
+            return _client.Consume(typeof(TService)) as TService;
+        }
+
+        public void Start()
+        {
+            foreach (var consumerType in ConsumerTypes)
+            {
+                _client.Consume(consumerType);
+            }
+                
+            foreach (var providerType in ProviderTypes)
+            {
+                _client.Provide(providerType, new AspNetCoreInvoker(providerType, _serviceProvider));
+            }
+
+            _client.Start();
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            return Task.Run(() =>
-            {
-                foreach (var consumerType in ConsumerTypes)
-                {
-                    _client.Consume(consumerType);
-                }
-                
-                foreach (var providerType in ProviderTypes)
-                {
-                    var interceptor = new AspNetCoreRpcInterceptor(_serviceProvider, providerType);
-                    var proxy = ProxyGenerator.CreateInterfaceProxyWithoutTarget(providerType, interceptor);
-
-                    _client.Provide(providerType, proxy);
-                }
-
-                _client.Start();
-            }, cancellationToken);
+            return Task.Run(Start, cancellationToken);
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            return Task.Run(() =>
-            {
-                _client.Dispose();
-            }, cancellationToken);
+            return Task.Run(() => _client.Dispose(), cancellationToken);
         }
     }
 }
