@@ -56,7 +56,7 @@ namespace Zoo.Rpc.Client
 
         public object Consume(Type serviceType)
         {
-            lock (_consumers)
+            lock (this)
             {
                 // Try to reuse existed consumer.
                 foreach (var c in _consumers)
@@ -101,16 +101,13 @@ namespace Zoo.Rpc.Client
         
         public void Dispose()
         {
-            lock (_providers)
+            lock (this)
             {
                 foreach (var provider in _providers)
                 {
                     provider.Dispose();
                 }
-            }
-            
-            lock (_consumers)
-            {
+
                 foreach (var consumer in _consumers)
                 {
                     consumer.Dispose();
