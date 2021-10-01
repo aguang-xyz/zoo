@@ -4,10 +4,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Zoo.Protocol.AspNetCore.Invokers;
+using Zoo.Protocol.Http.Invokers;
 using Zoo.Rpc.Client;
 
-namespace Zoo.Protocol.AspNetCore.Services
+namespace Zoo.Protocol.Http.Services
 {
     internal sealed class RpcClientService : IHostedService
     {

@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Refit;
 using Zoo.Rpc.Core.Models;
 
-namespace Zoo.Protocol.AspNetCore.Apis
+namespace Zoo.Protocol.Http.Apis
 {
     public interface IRpcApi
     {

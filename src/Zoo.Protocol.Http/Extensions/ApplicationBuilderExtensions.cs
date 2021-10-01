@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Builder;
-using Zoo.Protocol.AspNetCore.Middlewares;
+using Zoo.Protocol.Http.Middlewares;
 
-namespace Zoo.Protocol.AspNetCore.Extensions
+namespace Zoo.Protocol.Http.Extensions
 {
     public static class ApplicationBuilderExtensions
     {

@@ -1,8 +1,8 @@
 using System;
-using Zoo.Protocol.AspNetCore.Middlewares;
+using Zoo.Protocol.Http.Middlewares;
 using Zoo.Rpc.Abstractions.Nodes;
 
-namespace Zoo.Protocol.AspNetCore.Exporters
+namespace Zoo.Protocol.Http.Exporters
 {
     public class HttpExporter : IRpcExporter
     {

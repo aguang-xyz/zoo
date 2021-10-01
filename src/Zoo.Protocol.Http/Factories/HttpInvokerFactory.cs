@@ -1,13 +1,13 @@
 using System;
-using Zoo.Protocol.AspNetCore.Invokers;
+using Zoo.Protocol.Http.Invokers;
 using Zoo.Rpc.Abstractions.Attributes;
 using Zoo.Rpc.Abstractions.Factories;
 using Zoo.Rpc.Abstractions.Nodes;
 
-namespace Zoo.Protocol.AspNetCore.Factories
+namespace Zoo.Protocol.Http.Factories
 {
-    [Schema("https")]
-    public class HttpsInvokerFactory : IRpcInvokerFactory
+    [Schema("http")]
+    public class HttpInvokerFactory : IRpcInvokerFactory
     {
         public IRpcInvoker Create(Type serviceType, Uri serviceUri)
         {

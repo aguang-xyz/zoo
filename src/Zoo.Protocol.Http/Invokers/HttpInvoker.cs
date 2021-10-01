@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using Refit;
-using Zoo.Protocol.AspNetCore.Apis;
+using Zoo.Protocol.Http.Apis;
 using Zoo.Rpc.Abstractions.Models;
 using Zoo.Rpc.Abstractions.Nodes;
 using Zoo.Rpc.Core.Models;
 
-namespace Zoo.Protocol.AspNetCore.Invokers
+namespace Zoo.Protocol.Http.Invokers
 {
     public class HttpInvoker : IRpcInvoker
     {

@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>Zoo.Protocol.AspNetCore</RootNamespace>
+        <RootNamespace>Zoo.Protocol.Http</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

@@ -1,13 +1,13 @@
 using System;
-using Zoo.Protocol.AspNetCore.Exporters;
+using Zoo.Protocol.Http.Exporters;
 using Zoo.Rpc.Abstractions.Attributes;
 using Zoo.Rpc.Abstractions.Factories;
 using Zoo.Rpc.Abstractions.Nodes;
 
-namespace Zoo.Protocol.AspNetCore.Factories
+namespace Zoo.Protocol.Http.Factories
 {
-    [Schema("https")]
-    public class HttpsExporterFactory : IRpcExporterFactory
+    [Schema("http")]
+    public class HttpExporterFactory : IRpcExporterFactory
     {
         public IRpcExporter Create(Type serviceType, Uri serviceUri, IRpcInvoker invoker)
         {

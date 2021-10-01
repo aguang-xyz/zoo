@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 using Zoo.Rpc.Abstractions.Nodes;
 using Zoo.Rpc.Core.Models;
 
-namespace Zoo.Protocol.AspNetCore.Middlewares
+namespace Zoo.Protocol.Http.Middlewares
 {
     internal sealed class RpcMiddleware
     {

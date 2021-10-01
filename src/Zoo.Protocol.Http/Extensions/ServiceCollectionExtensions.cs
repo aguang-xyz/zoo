@@ -1,9 +1,9 @@
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Zoo.Protocol.AspNetCore.Services;
+using Zoo.Protocol.Http.Services;
 
-namespace Zoo.Protocol.AspNetCore.Extensions
+namespace Zoo.Protocol.Http.Extensions
 {
     public static class ServiceCollectionExtensions
     {

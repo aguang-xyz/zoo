@@ -4,7 +4,7 @@ using Zoo.Rpc.Abstractions.Models;
 using Zoo.Rpc.Abstractions.Nodes;
 using Zoo.Rpc.Core.Invokers;
 
-namespace Zoo.Protocol.AspNetCore.Invokers
+namespace Zoo.Protocol.Http.Invokers
 {
     public class ScopedInvoker : IRpcInvoker
     {
