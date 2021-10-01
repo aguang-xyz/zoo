@@ -1,7 +1,7 @@
 namespace Zoo.Rpc.Abstractions.Nodes
 {
     /// <summary>
-    /// RPC Provider.
+    /// RPC provider.
     /// </summary>
     public interface IRpcProvider : IRpcNode
     {

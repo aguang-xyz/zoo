@@ -2,11 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Rpc.Client", "src\Zoo.Rpc.Client\Zoo.Rpc.Client.csproj", "{E484D2B1-71D6-479F-9E67-B214816B061E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Protocol.AspNetCore", "src\Zoo.Protocol.AspNetCore\Zoo.Protocol.AspNetCore.csproj", "{565DF80E-8B0A-48B6-BECA-9B3921172C28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Protocol.Http", "src\Zoo.Protocol.Http\Zoo.Protocol.Http.csproj", "{565DF80E-8B0A-48B6-BECA-9B3921172C28}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Rpc.Abstractions", "src\Zoo.Rpc.Abstractions\Zoo.Rpc.Abstractions.csproj", "{8A63D21B-2792-4E40-9289-E39AA8D1571C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Rpc.Shared", "src\Zoo.Rpc.Shared\Zoo.Rpc.Shared.csproj", "{F3A49EB4-B33E-4F5D-992F-E8F1750937AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Rpc.Core", "src\Zoo.Rpc.Core\Zoo.Rpc.Core.csproj", "{F3A49EB4-B33E-4F5D-992F-E8F1750937AE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Registry.Redis", "src\Zoo.Registry.Redis\Zoo.Registry.Redis.csproj", "{D0961AE0-DE13-4419-BCCD-10AF2BB7A4C6}"
 EndProject
@@ -22,7 +22,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Examples.Consumer", "ex
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B28E9FE8-15EE-4B30-9633-8974B3C41A9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Rpc.Shared.UnitTests", "test\Zoo.Rpc.Shared.UnitTests\Zoo.Rpc.Shared.UnitTests.csproj", "{0CFED6A9-9CE6-47CC-9CC6-C0ECEC02A5DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Rpc.UnitTests", "test\Zoo.Rpc.UnitTests\Zoo.Rpc.UnitTests.csproj", "{0CFED6A9-9CE6-47CC-9CC6-C0ECEC02A5DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Registry.InMemory", "src\Zoo.Registry.InMemory\Zoo.Registry.InMemory.csproj", "{6EAA42E8-490D-46CE-8186-5BE6FC574CC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,6 +68,10 @@ Global
 		{0CFED6A9-9CE6-47CC-9CC6-C0ECEC02A5DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CFED6A9-9CE6-47CC-9CC6-C0ECEC02A5DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CFED6A9-9CE6-47CC-9CC6-C0ECEC02A5DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EAA42E8-490D-46CE-8186-5BE6FC574CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EAA42E8-490D-46CE-8186-5BE6FC574CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EAA42E8-490D-46CE-8186-5BE6FC574CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EAA42E8-490D-46CE-8186-5BE6FC574CC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{565DF80E-8B0A-48B6-BECA-9B3921172C28} = {F949C9C9-FDD8-48E4-BF5A-0AF60E467F48}
@@ -77,5 +83,6 @@ Global
 		{652D16DC-F75B-4195-AD45-60C3A67AB6AD} = {7C138FD3-B352-481C-B054-941F8EEC1B59}
 		{CE28AF94-1EFC-48F7-8EEC-8BD07F201EC3} = {7C138FD3-B352-481C-B054-941F8EEC1B59}
 		{0CFED6A9-9CE6-47CC-9CC6-C0ECEC02A5DF} = {B28E9FE8-15EE-4B30-9633-8974B3C41A9E}
+		{6EAA42E8-490D-46CE-8186-5BE6FC574CC2} = {F949C9C9-FDD8-48E4-BF5A-0AF60E467F48}
 	EndGlobalSection
 EndGlobal

@@ -4,7 +4,7 @@ using Zoo.Rpc.Abstractions.Nodes;
 namespace Zoo.Rpc.Abstractions.Factories
 {
     /// <summary>
-    /// Invoker factory.
+    /// RPC invoker factory.
     /// </summary>
     public interface IRpcInvokerFactory
     {

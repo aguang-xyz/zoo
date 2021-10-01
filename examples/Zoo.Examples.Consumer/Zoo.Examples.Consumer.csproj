@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Zoo.Protocol.AspNetCore\Zoo.Protocol.AspNetCore.csproj" />
+      <ProjectReference Include="..\..\src\Zoo.Protocol.Http\Zoo.Protocol.Http.csproj" />
       <ProjectReference Include="..\..\src\Zoo.Registry.Redis\Zoo.Registry.Redis.csproj" />
       <ProjectReference Include="..\Zoo.Examples.Contract\Zoo.Examples.Contract.csproj" />
     </ItemGroup>

@@ -7,7 +7,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Zoo.Rpc.Abstractions\Zoo.Rpc.Abstractions.csproj" />
-      <ProjectReference Include="..\Zoo.Rpc.Shared\Zoo.Rpc.Shared.csproj" />
+      <ProjectReference Include="..\Zoo.Rpc.Core\Zoo.Rpc.Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Zoo.Protocol.Http</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Refit" Version="6.0.94" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Zoo.Rpc.Client\Zoo.Rpc.Client.csproj" />
+    </ItemGroup>
+
+</Project>

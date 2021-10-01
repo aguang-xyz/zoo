@@ -4,7 +4,7 @@ using Zoo.Rpc.Abstractions.Nodes;
 namespace Zoo.Rpc.Abstractions.Factories
 {
     /// <summary>
-    /// Provider factory.
+    /// RPC provider factory.
     /// </summary>
     public interface IRpcProviderFactory
     {

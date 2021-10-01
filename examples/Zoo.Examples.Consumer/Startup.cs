@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Zoo.Examples.Contract.Services;
-using Zoo.Protocol.AspNetCore.Extensions;
+using Zoo.Protocol.Http.Extensions;
 
 namespace Zoo.Examples.Consumer
 {

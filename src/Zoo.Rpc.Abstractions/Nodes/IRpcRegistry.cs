@@ -3,7 +3,7 @@ using System;
 namespace Zoo.Rpc.Abstractions.Nodes
 {
     /// <summary>
-    /// RPC Registry.
+    /// RPC registry.
     /// </summary>
     public interface IRpcRegistry : IRpcNode
     {
