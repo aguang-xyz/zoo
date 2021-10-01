@@ -2,16 +2,16 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>Zoo.Rpc.Client</RootNamespace>
+        <RootNamespace>Zoo.Rpc.Core</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Zoo.Rpc.Abstractions\Zoo.Rpc.Abstractions.csproj" />
-      <ProjectReference Include="..\Zoo.Rpc.Core\Zoo.Rpc.Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Castle.Core" Version="4.4.1" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     </ItemGroup>
 
 </Project>

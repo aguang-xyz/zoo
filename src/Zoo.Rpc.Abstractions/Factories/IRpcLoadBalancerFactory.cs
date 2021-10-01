@@ -4,7 +4,7 @@ using Zoo.Rpc.Abstractions.LoadBalancers;
 namespace Zoo.Rpc.Abstractions.Factories
 {
     /// <summary>
-    /// Load balancer factory.
+    /// RPC load balancer factory.
     /// </summary>
     public interface IRpcLoadBalancerFactory
     {

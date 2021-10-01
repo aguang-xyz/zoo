@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Zoo.Rpc.Abstractions.Constants;
+using Zoo.Rpc.Abstractions.Extensions;
 using Zoo.Rpc.Abstractions.Factories;
 using Zoo.Rpc.Abstractions.Nodes;
-using Zoo.Rpc.Shared.Extensions;
-using Zoo.Rpc.Shared.Factories;
+using Zoo.Rpc.Core.Factories;
 
 namespace Zoo.Rpc.Client
 {
@@ -13,11 +13,11 @@ namespace Zoo.Rpc.Client
     /// </summary>
     public class DefaultRpcClient : IRpcClient
     {
-        private static readonly IRpcRegistryFactory RegistryFactory = new DefaultRpcRegistryFactory();
+        private static readonly IRpcRegistryFactory RegistryFactory = new RegistryFactory();
 
-        private static readonly IRpcProviderFactory ProviderFactory = new DefaultRpcProviderFactory();
+        private static readonly IRpcProviderFactory ProviderFactory = new ProviderFactory();
         
-        private static readonly IRpcConsumerFactory ConsumerFactory = new DefaultRpcConsumerFactory();
+        private static readonly IRpcConsumerFactory ConsumerFactory = new ConsumerFactory();
 
         private readonly RpcClientOptions _options;
 

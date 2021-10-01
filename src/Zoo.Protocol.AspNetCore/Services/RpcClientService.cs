@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Zoo.Protocol.AspNetCore.Nodes;
+using Zoo.Protocol.AspNetCore.Invokers;
 using Zoo.Rpc.Client;
 
 namespace Zoo.Protocol.AspNetCore.Services
@@ -15,17 +15,21 @@ namespace Zoo.Protocol.AspNetCore.Services
         
         public static readonly IList<Type> ProviderTypes = new List<Type>();
 
+        private readonly Uri _serviceUri; 
+
         private readonly IServiceProvider _serviceProvider;
 
         private readonly IRpcClient _client;
         
         public RpcClientService(IServiceProvider serviceProvider, IConfiguration configuration)
         {
+            _serviceUri = new Uri(configuration["Zoo:ServiceUri"]);
             _serviceProvider = serviceProvider;
+            
             _client = new DefaultRpcClient(new RpcClientOptions
             {
                 RegistryUri = new Uri(configuration["Zoo:RegistryUri"]),
-                ServiceUri = new Uri(configuration["Zoo:ServiceUri"])
+                ServiceUri = _serviceUri
             });
         }
 
@@ -43,7 +47,7 @@ namespace Zoo.Protocol.AspNetCore.Services
                 
             foreach (var providerType in ProviderTypes)
             {
-                _client.Provide(providerType, new AspNetCoreInvoker(providerType, _serviceProvider));
+                _client.Provide(providerType, new ScopedInvoker(_serviceUri, providerType, _serviceProvider));
             }
 
             _client.Start();

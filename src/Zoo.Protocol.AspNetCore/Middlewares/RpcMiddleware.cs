@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Linq;
 using Zoo.Rpc.Abstractions.Nodes;
-using Zoo.Rpc.Shared.Models;
+using Zoo.Rpc.Core.Models;
 
 namespace Zoo.Protocol.AspNetCore.Middlewares
 {
@@ -47,7 +47,7 @@ namespace Zoo.Protocol.AspNetCore.Middlewares
             return Task.Run(() =>
             {
                 var payload = new StreamReader(context.Request.Body).ReadToEndAsync().Result;
-                var invocation = new DefaultRpcInvocation(JObject.Parse(payload));
+                var invocation = new RpcInvocation(JObject.Parse(payload));
                 var invoker = Invokers[invocation!.ServiceType]!;
 
                 context.Response.WriteAsync(JsonSerializer.Serialize(invoker.Invoke(invocation)));

@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Zoo.Rpc.Shared\Zoo.Rpc.Shared.csproj" />
+      <ProjectReference Include="..\..\src\Zoo.Rpc.Core\Zoo.Rpc.Core.csproj" />
     </ItemGroup>
 
 </Project>

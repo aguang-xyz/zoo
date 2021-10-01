@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 using Refit;
-using Zoo.Rpc.Shared.Models;
+using Zoo.Rpc.Core.Models;
 
 namespace Zoo.Protocol.AspNetCore.Apis
 {
@@ -8,6 +8,6 @@ namespace Zoo.Protocol.AspNetCore.Apis
     {
         [Headers("X-Zoo-Rpc: true")]
         [Post("/.zoo-rpc")]
-        Task<DefaultRpcResult> Invoke([Body] DefaultRpcInvocation invocation);
+        Task<RpcResult> Invoke([Body] RpcInvocation rpcInvocation);
     }
 }
