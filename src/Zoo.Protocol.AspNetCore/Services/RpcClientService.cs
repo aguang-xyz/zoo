@@ -26,7 +26,7 @@ namespace Zoo.Protocol.AspNetCore.Services
             _serviceUri = new Uri(configuration["Zoo:ServiceUri"]);
             _serviceProvider = serviceProvider;
             
-            _client = new DefaultRpcClient(new RpcClientOptions
+            _client = new RpcClient(new RpcClientOptions
             {
                 RegistryUri = new Uri(configuration["Zoo:RegistryUri"]),
                 ServiceUri = _serviceUri

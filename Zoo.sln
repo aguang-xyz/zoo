@@ -22,7 +22,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Examples.Consumer", "ex
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B28E9FE8-15EE-4B30-9633-8974B3C41A9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Rpc.Shared.UnitTests", "test\Zoo.Rpc.Shared.UnitTests\Zoo.Rpc.Shared.UnitTests.csproj", "{0CFED6A9-9CE6-47CC-9CC6-C0ECEC02A5DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Rpc.UnitTests", "test\Zoo.Rpc.UnitTests\Zoo.Rpc.UnitTests.csproj", "{0CFED6A9-9CE6-47CC-9CC6-C0ECEC02A5DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Registry.InMemory", "src\Zoo.Registry.InMemory\Zoo.Registry.InMemory.csproj", "{6EAA42E8-490D-46CE-8186-5BE6FC574CC2}"
 EndProject

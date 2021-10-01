@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Zoo.Rpc.Shared.UnitTests.Support
+namespace Zoo.Rpc.UnitTests.Support
 {
     public class InvokerDataGenerator : IEnumerable<object[]>
     {

@@ -3,27 +3,30 @@ using FluentAssertions;
 using Xunit;
 using Zoo.Rpc.Core.Invokers;
 using Zoo.Rpc.Core.Models;
-using Zoo.Rpc.Shared.UnitTests.Support;
+using Zoo.Rpc.UnitTests.Support;
 
-namespace Zoo.Rpc.Shared.UnitTests.Invokers
+namespace Zoo.Rpc.UnitTests.Invokers
 {
-    public class ValuedInvokerTest
+    public class UnavailableInvokerTest
     {
         [Theory]
         [ClassData(typeof(InvokerDataGenerator))]
         public void Invoke(Uri uri, bool isConsumerSide)
         {
             // Given
-            var expectedResult = new RpcResult();
-            var invoker = new ValuedInvoker(uri, isConsumerSide, expectedResult);
-            
+            var invoker = new UnavailableInvoker(uri, isConsumerSide);
+
             // When
             var result = invoker.Invoke(new RpcInvocation());
+            var exception = result.Exception;
             
             // Then
             invoker.Uri.Should().Be(uri);
             invoker.IsConsumerSide.Should().Be(isConsumerSide);
-            result.Should().Be(expectedResult);
+            result.ReturnValue.Should().BeNull();
+            exception.GetType().Should().Be(typeof(InvalidOperationException));
+            exception.Message.Should().Be(UnavailableInvoker.Message);
+            result.Attachments.Should().BeEmpty();
         }
     }
 }

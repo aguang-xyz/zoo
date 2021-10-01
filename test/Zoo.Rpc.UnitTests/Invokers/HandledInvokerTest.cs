@@ -6,9 +6,9 @@ using Zoo.Rpc.Abstractions.Models;
 using Zoo.Rpc.Abstractions.Nodes;
 using Zoo.Rpc.Core.Invokers;
 using Zoo.Rpc.Core.Models;
-using Zoo.Rpc.Shared.UnitTests.Support;
+using Zoo.Rpc.UnitTests.Support;
 
-namespace Zoo.Rpc.Shared.UnitTests.Invokers
+namespace Zoo.Rpc.UnitTests.Invokers
 {
     public class HandledInvokerTest
     {
