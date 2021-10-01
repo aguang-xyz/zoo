@@ -9,9 +9,9 @@ using Zoo.Rpc.Core.Factories;
 namespace Zoo.Rpc.Client
 {
     /// <summary>
-    /// Default Rpc client.
+    /// Rpc client.
     /// </summary>
-    public class DefaultRpcClient : IRpcClient
+    public class RpcClient : IRpcClient
     {
         private static readonly IRpcRegistryFactory RegistryFactory = new RegistryFactory();
 
@@ -29,7 +29,7 @@ namespace Zoo.Rpc.Client
 
         private bool _started;
 
-        public DefaultRpcClient(RpcClientOptions options)
+        public RpcClient(RpcClientOptions options)
         {
             _options = options;
             _registry = RegistryFactory.Create(options.RegistryUri);
